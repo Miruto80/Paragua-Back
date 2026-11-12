@@ -11,7 +11,11 @@ export const Habitaciones = sequelize.define('Habitaciones', {
   },
   precio_por_persona: { type: DataTypes.DECIMAL(10, 2), allowNull: false, validate: { min: 0 } },
   descripcion: { type: DataTypes.TEXT, allowNull: true },
-  activa: { type: DataTypes.BOOLEAN, allowNull: false, defaultValue: true }
+  estatus: {
+    type: DataTypes.ENUM('activa', 'inactiva', 'limpieza', 'ocupada'),
+    allowNull: false,
+    defaultValue: 'activa'
+  }
 }, { tableName: 'habitaciones' });
 
 export const associateHabitaciones = (models = sequelize.models) => {
