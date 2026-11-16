@@ -4,6 +4,12 @@ import sequelize from '../database/db.js';
 export const Habitaciones = sequelize.define('Habitaciones', {
   id: { type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true },
   numero: { type: DataTypes.STRING(20), allowNull: false, unique: true },
+  piso: {
+    type: DataTypes.INTEGER,
+    allowNull: false,
+    defaultValue: 1,
+    validate: { min: 1 }
+  },
   capacidad: {
     type: DataTypes.INTEGER,
     allowNull: false,

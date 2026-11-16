@@ -1,4 +1,4 @@
-import { Roles } from './models/index.js';
+import { Habitaciones, Roles } from './models/index.js';
 
 export const seedInitialData = async () => {
   const roles = [
@@ -12,4 +12,18 @@ export const seedInitialData = async () => {
       defaults: role
     });
   }
+
+  const habitacion = {
+    numero: '101',
+    piso: 1,
+    capacidad: 2,
+    precio_por_persona: 12.5,
+    descripcion: 'Habitación de muestra para dos personas',
+    estatus: 'activa'
+  };
+
+  await Habitaciones.findOrCreate({
+    where: { numero: habitacion.numero },
+    defaults: habitacion
+  });
 };

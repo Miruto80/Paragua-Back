@@ -15,6 +15,10 @@ export const validarCapacidadHabitacion = [
 
 export const validarCreacionHabitacion = [
   body('numero').trim().notEmpty().withMessage('El número es requerido'),
+  body('piso')
+    .isInt({ min: 1 })
+    .withMessage('El piso debe ser un entero positivo')
+    .toInt(),
   body('capacidad')
     .isInt({ min: 2, max: 7 })
     .withMessage('La capacidad debe ser un entero entre 2 y 7')
@@ -30,6 +34,11 @@ export const validarCreacionHabitacion = [
 export const validarActualizacionHabitacion = [
   ...validarIdHabitacion,
   body('numero').optional().trim().notEmpty().withMessage('El número no puede estar vacío'),
+  body('piso')
+    .optional()
+    .isInt({ min: 1 })
+    .withMessage('El piso debe ser un entero positivo')
+    .toInt(),
   body('capacidad')
     .optional()
     .isInt({ min: 2, max: 7 })
