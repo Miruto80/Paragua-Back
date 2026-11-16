@@ -10,6 +10,9 @@ import refreshTokenMiddleware from './middlewares/tokenrefresh.midd.js';
 import { associateAllModels } from './models/index.js';
 import { seedInitialData } from './seed.js';
 
+
+import habitaciones from './routers/habitaciones.router.js';
+
 // Configurar __dirname para ES Modules
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -43,3 +46,5 @@ export const connectDatabase = async () => {
 app.get('/', (req, res) => {
   res.send('HollyU API running');
 });
+
+app.use('/api', habitaciones);
