@@ -1,6 +1,6 @@
 import { body, param, validationResult } from 'express-validator';
 
-const estadosValidos = ['activa', 'inactiva', 'limpieza', 'ocupada'];
+const estadosValidos = ['activa', 'inactiva', 'limpieza', 'ocupada', 'reservada'];
 
 export const validarIdHabitacion = [
   param('id').isInt({ min: 1 }).withMessage('El id debe ser un entero positivo').toInt()

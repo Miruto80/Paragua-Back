@@ -18,7 +18,7 @@ export const Habitaciones = sequelize.define('Habitaciones', {
   precio_por_persona: { type: DataTypes.DECIMAL(10, 2), allowNull: false, validate: { min: 0 } },
   descripcion: { type: DataTypes.TEXT, allowNull: true },
   estatus: {
-    type: DataTypes.ENUM('activa', 'inactiva', 'limpieza', 'ocupada'),
+    type: DataTypes.ENUM('activa', 'inactiva', 'limpieza', 'ocupada', 'reservada'),
     allowNull: false,
     defaultValue: 'activa'
   }
